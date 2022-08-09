@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="RAP.View.ResearcherListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RAP.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="180"
+             Background="#FF405764">
+
+
+
+
+
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="researcherList"
+            ObjectInstance="{StaticResource ResearcherController}"
+            MethodName="LoadResearchers">
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid Background="#FF405764">
+
+
+        <StackPanel x:Name="ResearcherNameList" Orientation="Vertical" Margin="10,10,10,10"  Background="#FF405764" >
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="Filter by name" Foreground="#f26d65" Margin="10,30,10,0" FontSize="14" FontWeight="Bold" Background="#FF405764" />
+                <TextBox Grid.Row="2" x:Name="FilterName" TextWrapping="Wrap" Height="auto" TextChanged="FilterByName" Margin="5 0 5 0" />
+                <ComboBox  Grid.Row="3" x:Name="emp_Level" SelectionChanged="setEmpLevel" Margin="5 0 5 0" FontWeight="Bold" Foreground="#f26d65" >
+                    <ComboBoxItem IsSelected="True" Content="All Researchers"/>
+                    <ComboBoxItem >Student only</ComboBoxItem>
+                    <ComboBoxItem>A Postdoc</ComboBoxItem>
+                    <ComboBoxItem>B Lecturer</ComboBoxItem>
+                    <ComboBoxItem>C Senior Lecturer</ComboBoxItem>
+                    <ComboBoxItem>D Associate Professo</ComboBoxItem>
+                    <ComboBoxItem>E Professor Students</ComboBoxItem>
+                </ComboBox>
+
+
+                <ListBox Grid.Row="5"  Name = "ResearchersName" ItemsSource="{Binding Source={StaticResource researcherList}}" SelectionChanged="ListBox_SelectionChanged" Margin="5 0 5 0" MinHeight="80" MinWidth="80" />
+                <Button Grid.Row="6" Content="Generate Report" Margin="10,4,10,10" Click="Generate_Report_Click" />
+
+
+            </Grid>
+
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

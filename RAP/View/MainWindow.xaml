@@ -1,0 +1,33 @@
+﻿<Window x:Class="RAP.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RAP"
+        xmlns:view="clr-namespace:RAP.View"
+        mc:Ignorable="d"
+        Title="RAP" Height="640" Width="809" Background="#FF405764">
+    <Grid>
+
+
+        <Grid Background="#FF405764">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140*"/>
+                <ColumnDefinition Width="400*"/>
+
+
+            </Grid.ColumnDefinitions>
+            <view:ResearcherListView x:Name="ResearcherListPanel" Grid.Column="0"  Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
+            <view:ResearcherDetailView x:Name="ResearcherDetailPanel" Grid.Column="1" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" />
+
+
+
+
+
+        </Grid>
+
+
+
+
+    </Grid>
+</Window>

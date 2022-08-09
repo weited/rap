@@ -1,0 +1,177 @@
+﻿<UserControl x:Class="RAP.View.ResearcherDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RAP.View"
+             mc:Ignorable="d" 
+             xmlns:view="clr-namespace:RAP.View"
+             d:DesignHeight="600" d:DesignWidth="550"
+             Background="#FF405764">
+    <Grid >
+        
+        
+        <StackPanel x:Name="ResearcherDetails" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Background="White">
+            <StackPanel.DataContext>
+                DataContext = researcher
+            </StackPanel.DataContext>
+            <Label Content=" Research Details" FontWeight="Bold" FontSize="14" Height="36" Foreground="#f26d65" Background="#FF405764"/>
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" MaxHeight="150">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition MaxWidth="260" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="7*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" Content="Name: " />
+                        <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=FullName}" />
+                        <Label Grid.Row="1" Grid.Column="0" FontWeight="Bold" Content="Title: " />
+                        <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=Title}" />
+                        <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" Content="Unit:" />
+                        <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=School}" />
+                        <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" Content="Campus: " />
+                        <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=Campus}" />
+                        <Label Grid.Row="4" Grid.Column="0" FontWeight="Bold" Content="Email: " />
+                        <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=Email}" />
+                        <Label Grid.Row="5" Grid.Column="0" FontWeight="Bold" Content="Current job:" />
+                        <Label Grid.Row="5" Grid.Column="1" Content="{Binding Path=JobTitle}" />
+                    </Grid>
+                    <Image Grid.Column="1" Source="{Binding Path=PhotoUrl}" Margin="20"/>
+                </Grid>
+
+                <Grid Grid.Row="1" MaxHeight="240">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" Content="Commenced with institution:" Grid.ColumnSpan="2" />
+                    <Label Grid.Row="0" Grid.Column="2" Content="{Binding Path=UtasStart}" Grid.ColumnSpan="2" />
+                    <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" Content="Commenced current position:" Grid.ColumnSpan="2" />
+                    <Label Grid.Row="2" Grid.Column="2" Content="{Binding Path=CurrentStart}"  Grid.ColumnSpan="2" />
+                    <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" Content="Previous position:" Grid.ColumnSpan="1" />
+                    <ListBox Grid.Row="3" Grid.Column="1" MinHeight="25" ItemsSource="{Binding previousPositions}"  Grid.ColumnSpan="3"  Grid.RowSpan="2"/>
+                    <Label Grid.Row="5" Grid.Column="0" FontWeight="Bold" Content="Tenure:"  />
+                    <Label Grid.Row="5" Grid.Column="1" Content="{Binding Path=Tenure}"/>
+                    <Label Grid.Row="5" Grid.Column="2" FontWeight="Bold" Content="3-year average:"  />
+                    <Label Grid.Row="5" Grid.Column="3" Content="{Binding Path=ThreeYearAverage}"/>
+                    <Label Grid.Row="6" Grid.Column="0" FontWeight="Bold" Content="Performance:"  />
+                    <Label Grid.Row="6" Grid.Column="1" Content="{Binding Path=Performance}"/>
+                    <Label Grid.Row="6" Grid.Column="2" FontWeight="Bold" Content="Publications:"  />
+                    <Label Grid.Row="6" Grid.Column="3" Content="{Binding Path=PublicationsCount}"/>
+                    <Button x:Name="Publication_Count" Click="Publication_Count_Click"  Grid.Row="6" Grid.Column="2" Content="Cumulative Count" HorizontalAlignment = "Left" Background="#f26d65" Foreground="#FF405764" MaxHeight="30" FontWeight="Bold"  Grid.ColumnSpan="2" >
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="8"/>
+                                
+                                
+                                
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Label Grid.Row="8" Grid.Column="0" FontWeight="Bold" Content="Supervisions:"  />
+                    <Label Grid.Row="8" Grid.Column="1" Content="{Binding Path=Supervisions}"/>
+                    <Button x:Name="Show_Studentname" Click="Show_Studentname_Click"  Grid.Row="7" Grid.Column="2" Content="Show Name" MaxHeight="30" Grid.ColumnSpan="2" Background="#f26d65" Foreground="#FF405764" FontWeight="Bold" HorizontalAlignment="Left" >
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="8"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Label Grid.Row="9" Grid.Column="0" FontWeight="Bold" Content="Degree:"/>
+                    <Label Grid.Row="9" Grid.Column="1" Content="{Binding Path=Degree}"/>
+                    <Label Grid.Row="7" Grid.Column="0" FontWeight="Bold" Content="Supervisor:"/>
+                    <Label Grid.Row="7" Grid.Column="1" Content="{Binding Path=Supervisor.FullName}"/>
+
+                </Grid>
+                <Grid Grid.Row="2" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="7*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" MaxHeight="75">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" Content="Publication:" Grid.ColumnSpan="7" />
+                        
+                        
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ListBox  Margin="10,0,10,54"  Name="lvUsers" ItemsSource="{Binding publications}" SelectionChanged="showPublicationDetail" MinHeight="100"  ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+
+
+                    </Grid>
+                    
+                    
+
+
+
+
+
+                </Grid>
+                    
+                
+
+            </Grid>
+
+
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

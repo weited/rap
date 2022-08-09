@@ -1,0 +1,186 @@
+﻿<Window x:Class="RAP.View.ReportView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RAP.View"
+        mc:Ignorable="d"
+        Title="Performance Report" Height="300" Width="380">
+    <Grid Margin="0,0,2,0">
+        <TabControl>
+            <TabItem Header="Star Performers" >
+                <Grid Background="#FF405764">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="1*"/>
+
+                    </Grid.RowDefinitions>
+                    <ListBox Margin="10" Name="listBox1">
+                        <ListBoxItem Content="Performance                             Name"></ListBoxItem>
+                        <ListBoxItem Content="250%                                    Stanford, Gemma"></ListBoxItem>
+
+                    </ListBox>
+
+                    <!--<ListView Grid.Row="0" Margin="10" Name="Star_Performers" >
+                        
+                            <GridView>
+                            <GridViewColumn Header="Performance" Width="165" DisplayMemberBinding ="{Binding Path = performance}" />
+                                <GridViewColumn Header="Family Name" Width="165" DisplayMemberBinding="{Binding Path =name}" />
+
+
+                            </GridView>
+                        
+                    </ListView> -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Copy" Margin="50 0 50 0" Background="#f26d65" Foreground="White" FontWeight="Bold">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="8" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+
+                    </Grid>
+
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Meeting Minimum" >
+                <Grid Background="#FF405764">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="1*"/>
+
+                    </Grid.RowDefinitions>
+                    <ListBox Margin="10" Name="Meeting_Minimum">
+                        <ListBoxItem Content="Performance                             Name"></ListBoxItem>
+                        <ListBoxItem Content="167%                                    Vogt, Edward"></ListBoxItem>
+                        <ListBoxItem Content="114%                                    Pemulwuy, Caitlyn"></ListBoxItem>
+                        <ListBoxItem Content="134%                                    Whitta,Indiana"></ListBoxItem>
+
+                    </ListBox>
+
+                    <!--<ListView Grid.Row="0" Margin="10" Name="Meeting_Minimum">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Performance" Width="165" DisplayMemberBinding="{Binding Performance}" />
+                                <GridViewColumn Header="Family Name" Width="165" DisplayMemberBinding="{Binding Name}" />
+                                
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>-->
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Copy" Margin="50 0 50 0" Background="#f26d65" Foreground="White" FontWeight="Bold">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="8" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Below Expectations">
+                <Grid Background="#FF405764">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="1*"/>
+
+                    </Grid.RowDefinitions>
+                    <ListBox Margin="10" Name="Expectations">
+                        <ListBoxItem Content="Performance                             Name"></ListBoxItem>
+                        <ListBoxItem Content="100%                                   Lister, Mary"></ListBoxItem>
+
+                    </ListBox>
+
+                    <!--<ListView Grid.Row="0" Margin="10" Name="Below_Expectations">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Performance" Width="165" DisplayMemberBinding="{Binding Performance}" />
+                                <GridViewColumn Header="Family Name" Width="165" DisplayMemberBinding="{Binding Name}" />
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>-->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Copy" Margin="50 0 50 0" Background="#f26d65" Foreground="White" FontWeight="Bold">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="8" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Poor">
+                <Grid Background="#FF405764">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="1*"/>
+
+                    </Grid.RowDefinitions>
+                    <ListBox Margin="10" Name="Poor">
+                        <ListBoxItem Content="Performance                             Name"></ListBoxItem>
+                        <ListBoxItem Content="33%                                    Beckett, John"></ListBoxItem>
+
+                    </ListBox>
+
+                    <!--<ListView Grid.Row="0" Margin="10" Name="Poor">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Performance" Width="165" DisplayMemberBinding="{Binding Performance}" />
+                               
+
+
+                                <GridViewColumn Header="Family Name" Width="165" DisplayMemberBinding="{Binding Name}" />
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>-->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Copy" Margin="50 0 50 0" Background="#f26d65" Foreground="White" FontWeight="Bold">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="8" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

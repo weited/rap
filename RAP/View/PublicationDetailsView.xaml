@@ -1,0 +1,67 @@
+﻿<Window x:Class="RAP.View.PublicationDetailsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RAP.View"
+        mc:Ignorable="d"
+        Title="Publication Details" Height="412" Width="581" Background="#FF405764" Closing="Window_Closing">
+    <Window.Resources>
+
+        <Style x:Key="defaultLabel" TargetType="Label">
+
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="PubDetailsLB" Margin="20"  Background="White" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="144*" />
+            <ColumnDefinition Width="389*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="0" Grid.Column="0" Content="Publication Details" Foreground="#f26d65" Background="#FF405764" Grid.ColumnSpan="2" Grid.RowSpan="2"  />
+
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="2" Grid.Column="0" Content="DOI:" />
+        <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=DOI}" />
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="3" Grid.Column="0" Content="Title: " />
+        <TextBlock TextWrapping="Wrap" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Title}" Grid.RowSpan="2"/>
+
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="5" Grid.Column="0" Content="Authors:" />
+        <Label Grid.Row="5" Grid.Column="1" Content="{Binding Path=Authors}" />
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="6" Grid.Column="0" Content="Publication year: " />
+        <Label Grid.Row="6" Grid.Column="1" Content="{Binding Path=Year}" />
+
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="7" Grid.Column="0" Content="Type:" />
+        <Label Grid.Row="7" Grid.Column="1" Content="{Binding Path=Type}" />
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="10" Grid.Column="0" Content="Cite as: " />
+        <TextBlock TextWrapping="Wrap" Grid.Row="10" Grid.Column="1" Text="{Binding Path=CiteAs}" Grid.RowSpan="3"/>
+
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="9" Grid.Column="0" Content="Availability date:" />
+        <Label Grid.Row="9" Grid.Column="1" Content="{Binding Path=Available}" />
+        <Label Style="{StaticResource defaultLabel }" Grid.Row="8" Grid.Column="0" Content="Age: " />
+        <Label Grid.Row="8" Grid.Column="1" Content="{Binding Path=Age}" />
+
+
+
+    </Grid>
+</Window>
